@@ -26,9 +26,10 @@ class ExpensesForm extends React.Component {
   handleChange = ({ target: { value, name } }) => this.setState({ [name]: value });
 
   onSubmit = () => {
-    const { saveExpense } = this.props;
+    const { saveExpense, sumExpenses } = this.props;
 
     saveExpense(this.state);
+    sumExpenses();
     this.setState((prev) => ({ id: prev.id + 1 }));
   }
 
