@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addLogin } from '../actions';
+import '../style/Login.css';
 
 class Login extends React.Component {
   constructor() {
@@ -46,35 +47,41 @@ class Login extends React.Component {
     const { disableLoginBtn, email, password } = this.state;
 
     return (
-      <main>
-        <h1>Login</h1>
-        <label htmlFor="email">
-          <input
-            id="email"
-            name="email"
-            value={ email }
-            onChange={ this.handleChange }
-            type="text"
-            data-testid="email-input"
-          />
-        </label>
-        <label htmlFor="password">
-          <input
-            id="password"
-            name="password"
-            value={ password }
-            onChange={ this.handleChange }
-            type="text"
-            data-testid="password-input"
-          />
-        </label>
-        <button
-          type="button"
-          disabled={ disableLoginBtn }
-          onClick={ this.onSubmit }
-        >
-          Entrar
-        </button>
+      <main className="login">
+        <div className="login__login">
+          <h1 className="login__header">Login</h1>
+          <section className="login__forms">
+            <label htmlFor="email" className="forms__label">
+              Email
+              <input
+                id="email"
+                name="email"
+                value={ email }
+                onChange={ this.handleChange }
+                type="text"
+                data-testid="email-input"
+              />
+            </label>
+            <label htmlFor="password" className="forms__label">
+              Senha
+              <input
+                id="password"
+                name="password"
+                value={ password }
+                onChange={ this.handleChange }
+                type="password"
+                data-testid="password-input"
+              />
+            </label>
+            <button
+              type="button"
+              disabled={ disableLoginBtn }
+              onClick={ this.onSubmit }
+            >
+              Entrar
+            </button>
+          </section>
+        </div>
       </main>);
   }
 }

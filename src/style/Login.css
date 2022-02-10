@@ -1,0 +1,36 @@
+.login {
+  display: grid;
+  grid-template-columns: 100vw;
+  grid-template-rows: 100vh;
+}
+
+.login__login {
+  align-self: center;
+  background-color: aqua;
+  display: grid;
+  height: 30vh;
+  justify-self: center;
+  width: 50vw;
+}
+
+.login__header {
+  align-self: center;
+  justify-self: center;
+}
+
+.login__forms {
+  align-self: center;
+  display: grid;
+  grid-template-rows: 35% 35% 30%;
+  justify-self: center;
+}
+
+.forms__label {
+  display: grid;
+  grid-template-rows: 50% 50%;
+}
+
+.forms__label input {
+  border: 1 solid gray;
+  border-radius: 20px;
+}

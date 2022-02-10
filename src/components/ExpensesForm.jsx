@@ -19,9 +19,7 @@ class ExpensesForm extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.getAPI();
-  }
+  componentDidMount() { this.getAPI(); }
 
   handleChange = ({ target: { value, name } }) => this.setState({ [name]: value });
 
@@ -33,10 +31,7 @@ class ExpensesForm extends React.Component {
     this.setState((prev) => ({ id: prev.id + 1, value: '' }));
   }
 
-  getAPI = async () => {
-    const coins = await coinAPI();
-    this.setState({ exchangeRates: coins });
-  }
+  getAPI = async () => this.setState({ exchangeRates: await coinAPI() });
 
   render() {
     const { exchangeRates, value, currency } = this.state;
