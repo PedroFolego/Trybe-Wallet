@@ -25,12 +25,12 @@ class ExpensesForm extends React.Component {
 
   handleChange = ({ target: { value, name } }) => this.setState({ [name]: value });
 
-  onSubmit = () => {
+  onSubmit = async () => {
     const { saveExpense, sumExpenses } = this.props;
 
-    saveExpense(this.state);
-    sumExpenses();
-    this.setState((prev) => ({ id: prev.id + 1 }));
+    await saveExpense(this.state);
+    await sumExpenses();
+    this.setState((prev) => ({ id: prev.id + 1, value: '' }));
   }
 
   getAPI = async () => {
@@ -39,7 +39,7 @@ class ExpensesForm extends React.Component {
   }
 
   render() {
-    const { exchangeRates } = this.state;
+    const { exchangeRates, value, currency } = this.state;
     return (
       <form>
         <label htmlFor="value">
@@ -48,6 +48,7 @@ class ExpensesForm extends React.Component {
             name="value"
             onChange={ this.handleChange }
             id="value"
+            value={ value }
             data-testid="value-input"
           />
         </label>
@@ -60,17 +61,6 @@ class ExpensesForm extends React.Component {
             data-testid="description-input"
           />
         </label>
-        <select
-          name="currency"
-          onChange={ this.handleChange }
-          data-testid="currency-input"
-        >
-          {Object.values(exchangeRates)
-            .filter((coin) => coin.codein !== 'BRLT')
-            .map((coin) => (
-              <option key={ coin.code } data-testid={ coin.code }>{coin.code}</option>
-            ))}
-        </select>
         <select name="method" onChange={ this.handleChange } data-testid="method-input">
           <option>Dinheiro</option>
           <option>Cartão de crédito</option>
@@ -83,6 +73,23 @@ class ExpensesForm extends React.Component {
           <option>Transporte</option>
           <option>Saúde</option>
         </select>
+        <label htmlFor="currency">
+          Moeda
+          <select
+            name="currency"
+            onChange={ this.handleChange }
+            data-testid="currency-input"
+            id="currency"
+            value={ currency }
+            moeda="moeda"
+          >
+            {Object.values(exchangeRates)
+              .filter((coin) => coin.codein !== 'BRLT')
+              .map((coin) => (
+                <option key={ coin.code } data-testid={ coin.code }>{coin.code}</option>
+              ))}
+          </select>
+        </label>
         <button type="button" onClick={ this.onSubmit }>Adicionar despesa</button>
       </form>
     );
@@ -97,4 +104,5 @@ export default connect(null, mapDispatchToProps)(ExpensesForm);
 
 ExpensesForm.propTypes = {
   saveExpense: PropTypes.func.isRequired,
+  sumExpenses: PropTypes.func.isRequired,
 };

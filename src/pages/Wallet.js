@@ -1,32 +1,27 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ExpensesForm from '../components/ExpensesForm';
 import Header from '../components/Header';
+import TableExpenses from '../components/TableExpenses';
+import { sumTotalExpenses } from '../actions';
 
 class Wallet extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      totalExpenses: 0,
-    };
-  }
-
   sumExpenses = () => {
-    const { expenses } = this.props;
-    console.log(expenses);
-    const sum = expenses.reduce((acc, expense) => acc + (Number(expense.value) * expense.exchangeRates[expense.currency].ask), 0);
-    console.log(sum);
-    this.setState({ totalExpenses: sum });
+    const { expenses, addTotalExpenses } = this.props;
+    const sum = expenses.reduce((acc, expense) => (
+      acc + (Number(expense.value) * expense.exchangeRates[expense.currency].ask)
+    ), 0);
+    addTotalExpenses(sum);
   }
 
   render() {
-    const { totalExpenses } = this.state;
     return (
       <div>
         TrybeWallet
-        <Header totalExpenses={ totalExpenses } />
+        <Header />
         <ExpensesForm sumExpenses={ this.sumExpenses } />
+        <TableExpenses />
       </div>
     );
   }
@@ -36,4 +31,13 @@ const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
 });
 
-export default connect(mapStateToProps)(Wallet);
+const mapDispatchToProps = (dispatch) => ({
+  addTotalExpenses: (payload) => dispatch(sumTotalExpenses(payload)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Wallet);
+
+Wallet.propTypes = {
+  expenses: PropTypes.arrayOf(PropTypes.object).isRequired,
+  addTotalExpenses: PropTypes.func.isRequired,
+};

@@ -1,13 +1,29 @@
+import coinAPI from '../api';
+
 // Coloque aqui suas actions
 export const ADD_LOGIN = 'ADD_LOGIN';
 export const ADD_EXPENSE = 'ADD_EXPENSE';
+export const ADD_SUM_EXPENSES = 'ADD_SUM_EXPENSES';
 
 export const addLogin = (payload) => ({
   type: ADD_LOGIN,
   email: payload.email,
 });
 
-export const addExpense = (payload) => ({
+const addTheExpense = (items) => ({
   type: ADD_EXPENSE,
-  expense: payload,
+  expense: {
+    ...items.payload,
+    exchangeRates: items.api,
+  },
+});
+
+export const addExpense = (payload) => async (dispatch) => {
+  const api = await coinAPI();
+  return dispatch(addTheExpense({ payload, api }));
+};
+
+export const sumTotalExpenses = (payload) => ({
+  type: ADD_SUM_EXPENSES,
+  sum: payload,
 });
