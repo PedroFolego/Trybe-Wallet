@@ -1,0 +1,29 @@
+.header {
+  background-color: rgb(7, 82, 0);
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  justify-self: center;
+  width: 100vw;
+}
+
+.user {
+  align-self: center;
+  padding-left: 70px;
+}
+
+.total__expense {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 70px;
+  padding-top: 15px;
+}
+
+.total__expense p {
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 10px;
+  text-align: center;
+}

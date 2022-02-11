@@ -1,4 +1,5 @@
 .login {
+  background-color: rgb(218, 218, 218);
   display: grid;
   grid-template-columns: 100vw;
   grid-template-rows: 100vh;
@@ -6,16 +7,27 @@
 
 .login__login {
   align-self: center;
-  background-color: aqua;
+  background-color: rgb(197, 246, 227);
+  border-radius: 20px;
   display: grid;
-  height: 30vh;
+  grid-template-rows: 35% 65%;
+  height: 40vh;
   justify-self: center;
-  width: 50vw;
+  width: 40vw;
 }
 
 .login__header {
+  border-bottom: solid 1px black;
+  display: grid;
+  grid-row: 1;
+  grid-template-rows: 100%;
+  height: 100%;
+}
+
+.login__header h1 {
   align-self: center;
-  justify-self: center;
+  font-weight: 900;
+  text-align: center;
 }
 
 .login__forms {
@@ -28,9 +40,32 @@
 .forms__label {
   display: grid;
   grid-template-rows: 50% 50%;
+
 }
 
 .forms__label input {
   border: 1 solid gray;
   border-radius: 20px;
+  padding: 10px;
+}
+
+.forms__label p {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding-left: 10px;
+}
+
+.email {
+  grid-row: 1;
+  margin-bottom: 5px;
+}
+
+.btn__login {
+  margin: 10px 0;
+}
+
+.btn__login:disabled {
+  background-color: gray;
+  border: gray;
 }

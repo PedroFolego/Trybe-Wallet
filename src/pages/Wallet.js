@@ -5,6 +5,7 @@ import ExpensesForm from '../components/ExpensesForm';
 import Header from '../components/Header';
 import TableExpenses from '../components/TableExpenses';
 import { sumTotalExpenses } from '../actions';
+import '../style/Wallet.css';
 
 class Wallet extends React.Component {
   sumExpenses = () => {
@@ -17,12 +18,17 @@ class Wallet extends React.Component {
 
   render() {
     return (
-      <div>
-        TrybeWallet
+      <main className="main__wallet">
+        <div className="logo">
+          <h1 className="trybe_wallet">
+            Trybe
+            <span className="wallet">Wallet</span>
+          </h1>
+        </div>
         <Header />
         <ExpensesForm sumExpenses={ this.sumExpenses } />
         <TableExpenses />
-      </div>
+      </main>
     );
   }
 }

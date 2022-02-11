@@ -49,10 +49,12 @@ class Login extends React.Component {
     return (
       <main className="login">
         <div className="login__login">
-          <h1 className="login__header">Login</h1>
-          <section className="login__forms">
-            <label htmlFor="email" className="forms__label">
-              Email
+          <header className="login__header">
+            <h1>Login</h1>
+          </header>
+          <section className="login__forms ">
+            <label htmlFor="email" className="forms__label email">
+              <p>Email</p>
               <input
                 id="email"
                 name="email"
@@ -62,8 +64,8 @@ class Login extends React.Component {
                 data-testid="email-input"
               />
             </label>
-            <label htmlFor="password" className="forms__label">
-              Senha
+            <label htmlFor="password" className="forms__label password">
+              <p>Senha</p>
               <input
                 id="password"
                 name="password"
@@ -74,6 +76,7 @@ class Login extends React.Component {
               />
             </label>
             <button
+              className="btn btn-primary btn__login"
               type="button"
               disabled={ disableLoginBtn }
               onClick={ this.onSubmit }

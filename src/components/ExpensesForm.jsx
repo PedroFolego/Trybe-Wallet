@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addExpense } from '../actions';
 import coinAPI from '../api';
+import '../style/ExpensesForm.css';
 
 class ExpensesForm extends React.Component {
   constructor() {
@@ -36,9 +37,11 @@ class ExpensesForm extends React.Component {
   render() {
     const { exchangeRates, value, currency } = this.state;
     return (
-      <form>
+      <form className="forms__expenses">
         <label htmlFor="value">
+          <span>Valor Gasto</span>
           <input
+            className="form-control form-control-sm"
             type="text"
             name="value"
             onChange={ this.handleChange }
@@ -48,7 +51,9 @@ class ExpensesForm extends React.Component {
           />
         </label>
         <label htmlFor="description">
+          <span>Descrição</span>
           <input
+            className="form-control form-control-sm"
             type="text"
             name="description"
             onChange={ this.handleChange }
@@ -56,21 +61,40 @@ class ExpensesForm extends React.Component {
             data-testid="description-input"
           />
         </label>
-        <select name="method" onChange={ this.handleChange } data-testid="method-input">
-          <option>Dinheiro</option>
-          <option>Cartão de crédito</option>
-          <option>Cartão de débito</option>
-        </select>
-        <select name="tag" onChange={ this.handleChange } data-testid="tag-input">
-          <option>Alimentação</option>
-          <option>Lazer</option>
-          <option>Trabalho</option>
-          <option>Transporte</option>
-          <option>Saúde</option>
-        </select>
-        <label htmlFor="currency">
-          Moeda
+        <label htmlFor="method">
+          <span>Forma de pagamento</span>
           <select
+            className="form-select form-select-sm"
+            id="method"
+            name="method"
+            onChange={ this.handleChange }
+            data-testid="method-input"
+          >
+            <option>Dinheiro</option>
+            <option>Cartão de crédito</option>
+            <option>Cartão de débito</option>
+          </select>
+        </label>
+        <label htmlFor="tag">
+          <span>Marcação</span>
+          <select
+            className="form-select form-select-sm"
+            id="tag"
+            name="tag"
+            onChange={ this.handleChange }
+            data-testid="tag-input"
+          >
+            <option>Alimentação</option>
+            <option>Lazer</option>
+            <option>Trabalho</option>
+            <option>Transporte</option>
+            <option>Saúde</option>
+          </select>
+        </label>
+        <label htmlFor="currency">
+          <span>Moeda</span>
+          <select
+            className="form-select form-select-sm"
             name="currency"
             onChange={ this.handleChange }
             data-testid="currency-input"
@@ -85,7 +109,13 @@ class ExpensesForm extends React.Component {
               ))}
           </select>
         </label>
-        <button type="button" onClick={ this.onSubmit }>Adicionar despesa</button>
+        <button
+          className="btn btn-success "
+          type="button"
+          onClick={ this.onSubmit }
+        >
+          Adicionar despesa
+        </button>
       </form>
     );
   }

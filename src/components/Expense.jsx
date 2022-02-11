@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import '../style/Expense.css';
 
 class Expense extends React.Component {
   render() {
@@ -14,7 +15,7 @@ class Expense extends React.Component {
     } } = this.props;
 
     return (
-      <div>
+      <div className="expense">
         <span role="cell">{description}</span>
         <span role="cell">{tag}</span>
         <span role="cell">{method}</span>
@@ -25,7 +26,11 @@ class Expense extends React.Component {
           {(Number(value) * Number(exchangeRates[currency].ask)).toFixed(2)}
         </span>
         <span role="cell">Real</span>
-        <span role="cell"><button type="button">Editar/excluir</button></span>
+        <span role="cell">
+          <button className="btn btn-outline-warning" type="button">
+            Editar/excluir
+          </button>
+        </span>
       </div>
     );
   }

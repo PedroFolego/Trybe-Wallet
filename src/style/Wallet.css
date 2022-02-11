@@ -1,0 +1,22 @@
+.main__wallet {
+  display: grid;
+}
+
+.logo {
+  background-color: white;
+  width: 100vw;
+}
+
+.trybe_wallet {
+  color: #157347;
+  font-size: 50px;
+  margin: 20px;
+  text-align: center;
+}
+
+.wallet {
+  background-color: #157347;
+  border-radius: 5px;
+  color: white;
+  padding: 15px;
+}
