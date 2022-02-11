@@ -27,7 +27,7 @@ class Wallet extends React.Component {
         </div>
         <Header />
         <ExpensesForm sumExpenses={ this.sumExpenses } />
-        <TableExpenses />
+        <TableExpenses sumExpenses={ this.sumExpenses } />
       </main>
     );
   }

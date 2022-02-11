@@ -12,14 +12,13 @@ class Header extends React.Component {
         <h2 data-testid="email-field" className="user">
           Usuário:
           {' '}
-          blablabla
           {email}
         </h2>
         <div className="total__expense">
           <p data-testid="total-field">
             Gasto Total R$
             {' '}
-            {totalExpenses.toFixed(2)}
+            {totalExpenses > 0 ? totalExpenses.toFixed(2) : 0}
           </p>
           <p data-testid="header-currency-field">BRL</p>
         </div>

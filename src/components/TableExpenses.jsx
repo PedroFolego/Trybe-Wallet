@@ -6,7 +6,7 @@ import '../style/TableExpenses.css';
 
 class TableExpenses extends React.Component {
   render() {
-    const { expenses } = this.props;
+    const { expenses, sumExpenses } = this.props;
     return (
       <>
         <table>
@@ -24,7 +24,9 @@ class TableExpenses extends React.Component {
             </tr>
           </tbody>
         </table>
-        {expenses.map((expense) => <Expense key={ expense.id } expense={ expense } />)}
+        {expenses.map((expense) => (
+          <Expense key={ expense.id } expense={ expense } sumExpenses={ sumExpenses } />
+        ))}
       </>
     );
   }
@@ -37,4 +39,5 @@ export default connect(mapStateToProps)(TableExpenses);
 
 TableExpenses.propTypes = {
   expenses: PropTypes.arrayOf(PropTypes.object).isRequired,
+  sumExpenses: PropTypes.func.isRequired,
 };

@@ -4,6 +4,7 @@ import coinAPI from '../api';
 export const ADD_LOGIN = 'ADD_LOGIN';
 export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const ADD_SUM_EXPENSES = 'ADD_SUM_EXPENSES';
+export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
 
 export const addLogin = (payload) => ({
   type: ADD_LOGIN,
@@ -26,4 +27,9 @@ export const addExpense = (payload) => async (dispatch) => {
 export const sumTotalExpenses = (payload) => ({
   type: ADD_SUM_EXPENSES,
   sum: payload,
+});
+
+export const removeExpense = (paylod) => ({
+  type: REMOVE_EXPENSE,
+  expenses: paylod,
 });
