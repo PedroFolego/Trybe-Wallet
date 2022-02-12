@@ -39,6 +39,7 @@ class Expense extends React.Component {
             className="btn btn-outline-warning"
             data-testid="delete-btn"
             type="button"
+            onClick={ this.removeExpense }
           >
             <i className="fa-solid fa-pen-to-square" />
           </button>
@@ -46,7 +47,6 @@ class Expense extends React.Component {
             className="btn btn-outline-danger"
             data-testid="edit-btn"
             type="button"
-            onClick={ this.removeExpense }
           >
             <i className="fa-solid fa-xmark" />
           </button>
