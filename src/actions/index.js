@@ -5,10 +5,22 @@ export const ADD_LOGIN = 'ADD_LOGIN';
 export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const ADD_SUM_EXPENSES = 'ADD_SUM_EXPENSES';
 export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
+export const CHANGE_EXPENSE = 'CHANGE_EXPENSE';
+export const ADD_EXPENSE_CHANGE = 'ADD_EXPENSE_CHANGE';
 
 export const addLogin = (payload) => ({
   type: ADD_LOGIN,
   email: payload.email,
+});
+
+export const changeExpense = (payload) => ({
+  type: CHANGE_EXPENSE,
+  expense: payload,
+});
+
+export const addExpenseChange = (payload) => ({
+  type: ADD_EXPENSE_CHANGE,
+  expenses: payload,
 });
 
 const addTheExpense = (items) => ({

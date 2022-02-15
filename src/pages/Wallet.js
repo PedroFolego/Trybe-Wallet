@@ -6,8 +6,17 @@ import Header from '../components/Header';
 import TableExpenses from '../components/TableExpenses';
 import { sumTotalExpenses } from '../actions';
 import '../style/Wallet.css';
+import ChangeExpenseForms from '../components/ChangeExpenseForms';
 
 class Wallet extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      componentChange: false,
+    };
+  }
+
   sumExpenses = () => {
     const { expenses, addTotalExpenses } = this.props;
     const sum = expenses.reduce((acc, expense) => (
@@ -16,7 +25,12 @@ class Wallet extends React.Component {
     addTotalExpenses(sum);
   }
 
+  componentChangeExpense= () => {
+    this.setState((prev) => ({ componentChange: !prev.componentChange }));
+  }
+
   render() {
+    const { componentChange } = this.state;
     return (
       <main className="main__wallet">
         <div className="logo">
@@ -26,8 +40,14 @@ class Wallet extends React.Component {
           </h1>
         </div>
         <Header />
-        <ExpensesForm sumExpenses={ this.sumExpenses } />
-        <TableExpenses sumExpenses={ this.sumExpenses } />
+        { componentChange ? <ChangeExpenseForms
+          componentChangeExpense={ this.componentChangeExpense }
+          sumExpenses={ this.sumExpenses }
+        /> : <ExpensesForm sumExpenses={ this.sumExpenses } />}
+        <TableExpenses
+          sumExpenses={ this.sumExpenses }
+          componentChangeExpense={ this.componentChangeExpense }
+        />
       </main>
     );
   }

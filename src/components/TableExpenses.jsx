@@ -6,7 +6,7 @@ import '../style/TableExpenses.css';
 
 class TableExpenses extends React.Component {
   render() {
-    const { expenses, sumExpenses } = this.props;
+    const { expenses, sumExpenses, componentChangeExpense } = this.props;
     return (
       <>
         <table>
@@ -25,7 +25,12 @@ class TableExpenses extends React.Component {
           </tbody>
         </table>
         {expenses.map((expense) => (
-          <Expense key={ expense.id } expense={ expense } sumExpenses={ sumExpenses } />
+          <Expense
+            key={ expense.id }
+            expense={ expense }
+            sumExpenses={ sumExpenses }
+            componentChangeExpense={ componentChangeExpense }
+          />
         ))}
       </>
     );
@@ -38,6 +43,7 @@ const mapStateToProps = ({ wallet }) => ({
 export default connect(mapStateToProps)(TableExpenses);
 
 TableExpenses.propTypes = {
+  componentChangeExpense: PropTypes.func.isRequired,
   expenses: PropTypes.arrayOf(PropTypes.object).isRequired,
   sumExpenses: PropTypes.func.isRequired,
 };
