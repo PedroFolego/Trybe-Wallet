@@ -26,10 +26,11 @@ class Expense extends React.Component {
       method,
       tag,
       exchangeRates,
-    } } = this.props;
+    }, expense } = this.props;
 
     return (
       <div className="expense">
+        {console.log(expense)}
         <span role="cell">{description}</span>
         <span role="cell">{tag}</span>
         <span role="cell">{method}</span>

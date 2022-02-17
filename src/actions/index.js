@@ -7,6 +7,7 @@ export const ADD_SUM_EXPENSES = 'ADD_SUM_EXPENSES';
 export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
 export const CHANGE_EXPENSE = 'CHANGE_EXPENSE';
 export const ADD_EXPENSE_CHANGE = 'ADD_EXPENSE_CHANGE';
+export const CHANGE_ARR_EXPENSE = 'CHANGE_ARR_EXPENSE';
 
 export const addLogin = (payload) => ({
   type: ADD_LOGIN,
@@ -29,6 +30,11 @@ const addTheExpense = (items) => ({
     ...items.payload,
     exchangeRates: items.api,
   },
+});
+
+export const changeExpenses = (payload) => ({
+  type: CHANGE_ARR_EXPENSE,
+  arrExpenses: payload,
 });
 
 export const addExpense = (payload) => async (dispatch) => {

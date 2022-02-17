@@ -2,6 +2,7 @@ import {
   ADD_EXPENSE,
   ADD_EXPENSE_CHANGE,
   ADD_SUM_EXPENSES,
+  CHANGE_ARR_EXPENSE,
   CHANGE_EXPENSE,
   REMOVE_EXPENSE,
 } from '../actions';
@@ -26,6 +27,8 @@ const walletReducer = (state = INITIAL_STATE, option) => {
     return { ...state, alterateExpense: option.expense };
   case ADD_EXPENSE_CHANGE:
     return { ...state, expenses: option.expenses };
+  case CHANGE_ARR_EXPENSE:
+    return { ...state, expenses: option.arrExpenses };
   default:
     return state;
   }

@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addExpense } from '../actions';
-import '../style/ExpensesForm.css';
+import { changeExpenses } from '../actions';
+import '../style/ChangeExpenseForms.css';
 
 class ExpensesForm extends React.Component {
   constructor() {
@@ -38,16 +38,14 @@ class ExpensesForm extends React.Component {
       saveExpense,
       componentChangeExpense,
     } = this.props;
-    const { id, value, description, currency, method, tag } = this.state;
-    const expenseToChange = expenses.find((expense) => expense.id === id);
-    expenseToChange.value = value;
-    expenseToChange.description = description;
-    expenseToChange.currency = currency;
-    expenseToChange.method = method;
-    expenseToChange.tag = tag;
+    console.log(expenses);
+    const { id } = this.state;
+    console.log(this.state);
 
-    // expenseToChange = { ...this.state };
-    await saveExpense(expenses);
+    let newExpenses = expenses.filter((expense) => expense.id !== id);
+    newExpenses = [...newExpenses, this.state];
+    newExpenses.sort((a, b) => a.id - b.id);
+    await saveExpense(newExpenses);
     await sumExpenses();
     componentChangeExpense();
   }
@@ -55,7 +53,7 @@ class ExpensesForm extends React.Component {
   render() {
     const { exchangeRates, value, description, currency, method, tag } = this.state;
     return (
-      <form className="forms__expenses">
+      <form className="forms__expenses_change">
         <label htmlFor="value">
           <span>Valor Gasto</span>
           <input
@@ -135,7 +133,7 @@ class ExpensesForm extends React.Component {
           type="button"
           onClick={ this.onSubmit }
         >
-          Adicionar despesa
+          Alterar Despesa
         </button>
       </form>
     );
@@ -143,7 +141,7 @@ class ExpensesForm extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  saveExpense: (payload) => dispatch(addExpense(payload)),
+  saveExpense: (payload) => dispatch(changeExpenses(payload)),
 });
 
 const mapStateToProps = ({ wallet }) => ({

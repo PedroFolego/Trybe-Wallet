@@ -110,7 +110,7 @@ class ExpensesForm extends React.Component {
           </select>
         </label>
         <button
-          className="btn btn-success "
+          className="btn btn-success"
           type="button"
           onClick={ this.onSubmit }
         >
