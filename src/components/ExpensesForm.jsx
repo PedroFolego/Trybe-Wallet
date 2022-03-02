@@ -39,7 +39,7 @@ class ExpensesForm extends React.Component {
     return (
       <form className="forms__expenses">
         <label htmlFor="value">
-          <span>Valor Gasto</span>
+          <span>💲Valor Gasto💲</span>
           <input
             className="form-control form-control-sm"
             type="text"
@@ -51,7 +51,7 @@ class ExpensesForm extends React.Component {
           />
         </label>
         <label htmlFor="description">
-          <span>Descrição</span>
+          <span>💲Descrição💲</span>
           <input
             className="form-control form-control-sm"
             type="text"
@@ -62,7 +62,7 @@ class ExpensesForm extends React.Component {
           />
         </label>
         <label htmlFor="method">
-          <span>Forma de pagamento</span>
+          <span>💲Forma de pagamento💲</span>
           <select
             className="form-select form-select-sm"
             id="method"
@@ -76,7 +76,7 @@ class ExpensesForm extends React.Component {
           </select>
         </label>
         <label htmlFor="tag">
-          <span>Marcação</span>
+          <span>💲Marcação💲</span>
           <select
             className="form-select form-select-sm"
             id="tag"
@@ -92,7 +92,7 @@ class ExpensesForm extends React.Component {
           </select>
         </label>
         <label htmlFor="currency">
-          <span>Moeda</span>
+          <span>💲Moeda💲</span>
           <select
             className="form-select form-select-sm"
             name="currency"

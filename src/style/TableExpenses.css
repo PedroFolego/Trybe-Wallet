@@ -1,15 +1,19 @@
-.header__table {
-  align-items: center;
-  background-color: black;
-  color: white;
-  display: grid;
-  grid-template-columns: 17% 10% 14% 8% 10% 10% 11% 11% 9%;
-  height: 40px;
-  justify-content: center;
+.table {
+  background-color: white;
   text-align: center;
+  width: 100vw;
 }
 
-.header__table > th {
-  border-left: solid 1px white;
-  border-right: solid 1px white;
+.thead {
+  background-color: black;
+  color: white;
+}
+
+.thead tr > th {
+  border: solid 1px white;
+}
+
+.tbody tr > td {
+  align-self: center;
+  border: solid 1px black;
 }

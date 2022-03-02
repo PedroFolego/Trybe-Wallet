@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import '../style/Expense.css';
 import { changeExpense, removeExpense } from '../actions';
 
 class Expense extends React.Component {
@@ -26,22 +25,21 @@ class Expense extends React.Component {
       method,
       tag,
       exchangeRates,
-    }, expense } = this.props;
+    } } = this.props;
 
     return (
-      <div className="expense">
-        {console.log(expense)}
-        <span role="cell">{description}</span>
-        <span role="cell">{tag}</span>
-        <span role="cell">{method}</span>
-        <span role="cell">{Number(value).toFixed(2)}</span>
-        <span role="cell">{exchangeRates[currency].name}</span>
-        <span role="cell">{Number(exchangeRates[currency].ask).toFixed(2)}</span>
-        <span role="cell">
+      <tr>
+        <td role="cell">{description}</td>
+        <td role="cell">{tag}</td>
+        <td role="cell">{method}</td>
+        <td role="cell">{Number(value).toFixed(2)}</td>
+        <td role="cell">{exchangeRates[currency].name}</td>
+        <td role="cell">{Number(exchangeRates[currency].ask).toFixed(2)}</td>
+        <td role="cell">
           {(Number(value) * Number(exchangeRates[currency].ask)).toFixed(2)}
-        </span>
-        <span role="cell">Real</span>
-        <span role="cell">
+        </td>
+        <td role="cell">Real</td>
+        <td role="cell">
           <button
             className="btn btn-outline-warning"
             data-testid="edit-btn"
@@ -58,8 +56,8 @@ class Expense extends React.Component {
           >
             <i className="fa-solid fa-xmark" />
           </button>
-        </span>
-      </div>
+        </td>
+      </tr>
     );
   }
 }

@@ -11,6 +11,8 @@
 
 .user {
   align-self: center;
+  font-size: 16px;
+  margin: 0;
   padding-left: 70px;
 }
 
@@ -23,7 +25,7 @@
 
 .total__expense p {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
   margin-left: 10px;
   text-align: center;
 }
