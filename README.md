@@ -25,4 +25,4 @@ npm install
   ```
 
 ## Site
-Visualização do site: https://trybewalletsite.netlify.app
+https://trybewalletsite.netlify.app
