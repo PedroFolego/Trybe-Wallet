@@ -1,6 +1,6 @@
 # TrybeWallet
 
-App de gerenciamento de gastos, onde podemos adicionar gastos, editar e fazer conversão de moeda.
+App de gerenciamento de gastos. Onde é possível adicionar gastos, editar, excluir e fazer conversão de moedas.
 
 Site criado durante o curso da Trybe.
 
