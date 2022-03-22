@@ -1,7 +1,7 @@
 # TrybeWallet
 
 Site de gerenciamento de despesas e conversão de moeda.
-Onde é possível adicionar gastos, editar, excluir e fazer conversão de moedas.
+Onde é possível adicionar despesa, editar, excluir e converter para o tipo de moeda utilizada.
 
 Site criado durante o curso da Trybe.
 
