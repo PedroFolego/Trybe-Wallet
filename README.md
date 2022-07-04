@@ -13,7 +13,7 @@ Site criado durante o curso da Trybe.
 ### Instalando Dependências
  
 ```bash
-cd src/
+cd TrybeWallet
 npm install
 ``` 
 ### Executando aplicação
@@ -21,7 +21,7 @@ npm install
 * Para rodar a aplicação:
 
   ```
-    cd src/ && npm start
+    npm start
   ```
 
 ## Site
